@@ -1,84 +1,412 @@
----
-layout: default
-title: Imanuel Annoh
-description: Data Analyst / Data Scientist Portfolio
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Imanuel Annoh | Data Analyst / Data Scientist</title>
+  <meta name="description" content="Imanuel Annoh — Data Analyst / Data Scientist portfolio." />
 
-<h1 style="text-align:center;">Imanuel Annoh</h1>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --link:#2563eb;
+      --chip:#f3f4f6;
+      --shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
 
-<p style="text-align:center;">
-  <strong>Data Analyst / Data Scientist</strong><br>
-  Manchester, CT<br>
-  <a href="mailto:annohimanuel123@gmail.com">Email</a> |
-  <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a> |
-  <a href="https://github.com/annohimanuel">GitHub</a> |
-  <a href="/resume.pdf">Resume</a>
-</p>
+    .page{
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 18px 34px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 920px){
+      .page{grid-template-columns: 1fr; gap:18px}
+    }
 
-<hr>
+    /* LEFT PANEL */
+    .left{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 18px;
+      height: fit-content;
+      background:#fff;
+    }
+    @media (max-width: 920px){ .left{position:relative; top:0} }
 
-<h2>About</h2>
-<p>
-I hold a <strong>Master of Science in Data Science (GPA 3.9)</strong> and focus on
-<strong>healthcare analytics, causal inference, predictive modeling, and business intelligence</strong>.
-My work spans end-to-end data pipelines, machine learning, model explainability,
-and deployment using FastAPI.
-</p>
+    .name{
+      font-size: 28px;
+      font-weight: 800;
+      margin: 10px 0 2px;
+      letter-spacing: -.02em;
+    }
+    .tagline{
+      color:var(--muted);
+      font-weight: 600;
+      margin: 0 0 14px;
+    }
+    .avatar{
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      overflow:hidden;
+      border: 1px solid var(--border);
+      margin: 4px auto 12px;
+      background: #f9fafb;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
 
-<hr>
+    .quicklinks{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap:wrap;
+      margin: 10px 0 14px;
+      font-weight: 700;
+    }
 
-<h2>Portfolio</h2>
+    .subtle{
+      text-align:center;
+      color:var(--muted);
+      font-size: 14px;
+      margin: 10px 0 12px;
+    }
 
-<h3>Healthcare Analytics</h3>
+    .btnrow{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      color: #111827;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{background:#f9fafb; text-decoration:none}
 
-<h4>Hospital Readmission Risk Modeling & Deployment</h4>
-<ul>
-  <li>Built an end-to-end ML pipeline on <strong>1M patient encounters</strong></li>
-  <li>Applied <strong>Difference-in-Differences causal inference</strong></li>
-  <li>Optimized models using recall-driven thresholds</li>
-  <li>Explained predictions with <strong>SHAP</strong></li>
-  <li>Deployed a <strong>FastAPI</strong> inference service</li>
-</ul>
-<p>
-  <a href="LINK_TO_REPO">View on GitHub</a>
-</p>
+    .chipbox{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      justify-content:center;
+    }
+    .chip{
+      background: var(--chip);
+      border: 1px solid var(--border);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color:#111827;
+    }
 
-<hr>
+    /* RIGHT PANEL */
+    .right{
+      padding: 4px 0;
+    }
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 14px;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+    }
+    .title{
+      font-size: 40px;
+      font-weight: 900;
+      margin:0;
+      letter-spacing: -.03em;
+    }
+    .skillsline{
+      font-weight: 800;
+      color:#111827;
+      margin: 6px 0 0;
+    }
+    .skillsline span{color:var(--muted); font-weight:700}
 
-<h3>Marketplace / Product Analytics</h3>
+    .section{
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .section h2{
+      font-size: 22px;
+      margin: 14px 0 10px;
+      font-weight: 900;
+      letter-spacing: -.01em;
+    }
 
-<h4>Drivers of Booking Completions (Airbnb-style dataset)</h4>
-<ul>
-  <li>XGBoost model trained on <strong>50K bookings</strong></li>
-  <li>Handled class imbalance and high-cardinality features</li>
-  <li>Used <strong>SHAP</strong> to identify behavioral conversion drivers</li>
-</ul>
-<p>
-  <a href="LINK_TO_REPO">View on GitHub</a>
-</p>
+    .item{
+      display:grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background:#cbd5e1;
+      margin-top: 8px;
+    }
+    .itemhead{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:baseline;
+    }
+    .itemtitle{
+      font-weight: 900;
+      margin:0;
+      font-size: 16px;
+    }
+    .itemmeta{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .itemsub{
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .bullets{
+      margin: 8px 0 0 18px;
+      color:#111827;
+    }
+    .bullets li{margin: 6px 0}
 
-<hr>
+    .project{
+      padding: 12px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .project h3{
+      margin:0;
+      font-size: 16px;
+      font-weight: 900;
+    }
+    .projmeta{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .projlinks{
+      margin-top: 8px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      font-weight: 800;
+    }
 
-<h3>Clinical Prediction</h3>
+    footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
 
-<h4>Diabetes Risk Prediction</h4>
-<ul>
-  <li>Supervised ML models for clinical risk classification</li>
-  <li>Feature preprocessing, evaluation, and interpretability</li>
-</ul>
-<p>
-  <a href="LINK_TO_REPO">View on GitHub</a>
-</p>
+<body>
+  <main class="page">
+    <!-- LEFT -->
+    <aside class="left">
+      <!-- Put your headshot in the repo root as: headshot.jpg (or change filename here) -->
+      <div class="avatar">
+        <img src="headshot.jpg" alt="Imanuel Annoh headshot">
+      </div>
 
-<hr>
+      <div class="name">Imanuel Annoh</div>
+      <div class="tagline">Data Analyst / Data Scientist</div>
 
-<h2>Skills</h2>
-<p>
-Python • SQL • Tableau • Power BI • XGBoost • SHAP • FastAPI • PostgreSQL • scikit-learn
-</p>
+      <div class="quicklinks">
+        <!-- Replace these links -->
+        <a href="resume.pdf">Resume</a>
+        <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
+        <a href="https://github.com/annohimanuel">GitHub</a>
+      </div>
 
-<hr>
+      <div class="subtle">Portfolio site for selected projects and experience.</div>
 
-<p style="text-align:center;">
-© {{ site.time | date: "%Y" }} Imanuel Annoh • Powered by Jekyll Minimal Theme
-</p>
+      <div class="btnrow">
+        <!-- If you don’t want these, delete the whole btnrow -->
+        <a class="btn" href="resume.pdf">Download<br>RESUME</a>
+        <a class="btn" href="https://github.com/annohimanuel?tab=repositories">View<br>REPOS</a>
+        <a class="btn" href="mailto:annohimanuel123@gmail.com">Email<br>ME</a>
+      </div>
+
+      <div class="chipbox" aria-label="Key skills">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Tableau</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">XGBoost</span>
+        <span class="chip">SHAP</span>
+      </div>
+    </aside>
+
+    <!-- RIGHT -->
+    <section class="right">
+      <div class="hero">
+        <div>
+          <h1 class="title">Data Scientist</h1>
+          <p class="skillsline"><span>Technical Skills:</span> Python, SQL, Tableau, Power BI, FastAPI, XGBoost, SHAP, PostgreSQL, MySQL</p>
+        </div>
+      </div>
+
+      <div class="section" id="education">
+        <h2>Education</h2>
+
+        <div class="item">
+          <div class="dot"></div>
+          <div>
+            <div class="itemhead">
+              <p class="itemtitle">Master of Science, Data Science</p>
+              <div class="itemmeta">Eastern University (Mar 2025)</div>
+            </div>
+            <p class="itemsub">St. Davids, PA • GPA: 3.9/4.0</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="dot"></div>
+          <div>
+            <div class="itemhead">
+              <p class="itemtitle">Bachelor of Science, Biology</p>
+              <div class="itemmeta">Siena College (May 2022)</div>
+            </div>
+            <p class="itemsub">Loudonville, NY</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="experience">
+        <h2>Work Experience</h2>
+
+        <div class="item">
+          <div class="dot"></div>
+          <div>
+            <div class="itemhead">
+              <p class="itemtitle">Data Analyst @ Decabyte</p>
+              <div class="itemmeta">Sep 2023 – Oct 2025</div>
+            </div>
+            <p class="itemsub">Remote</p>
+            <ul class="bullets">
+              <li>Built sales and inventory analytics system using Python, SQL, and Excel; reduced stockouts by 25% and improved customer outcomes through demand insights.</li>
+              <li>Automated daily/weekly/monthly reporting pipelines; saved 10+ hours/week and improved reporting consistency and accuracy.</li>
+              <li>Developed Power BI dashboards and KPI tracking for sales performance, inventory health, and forecasting visibility.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="dot"></div>
+          <div>
+            <div class="itemhead">
+              <p class="itemtitle">Data Entry @ Decabyte</p>
+              <div class="itemmeta">Aug 2019 – May 2024</div>
+            </div>
+            <p class="itemsub">Remote</p>
+            <ul class="bullets">
+              <li>Maintained high-volume operational datasets across internal databases and spreadsheets; ensured accuracy and timely updates.</li>
+              <li>Performed routine validation and quality checks; corrected inconsistencies to improve reliability for downstream reporting.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+          <h3>Hospital Readmission Risk Modeling & Deployment</h3>
+          <p class="projmeta">Healthcare analytics • Causal inference (Difference-in-Differences) • ML + deployment</p>
+          <ul class="bullets">
+            <li>Built end-to-end pipeline on 1M patient encounters to model 30-day readmission risk.</li>
+            <li>Developed leakage-safe pipelines (Logistic Regression, XGBoost) with threshold tuning and SHAP explainability.</li>
+            <li>Deployed FastAPI inference service returning calibrated probabilities and threshold-based predictions.</li>
+          </ul>
+          <div class="projlinks">
+            <a href="https://github.com/annohimanuel/YOUR_READMISSION_REPO">View on GitHub</a>
+            <a href="https://github.com/annohimanuel/YOUR_READMISSION_REPO#readme">Readme</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>Drivers of Booking Completions (Airbnb-style dataset)</h3>
+          <p class="projmeta">Conversion modeling • XGBoost • Class imbalance • SHAP</p>
+          <ul class="bullets">
+            <li>Built XGBoost model on 50K bookings; handled imbalance and high-cardinality features via frequency encoding.</li>
+            <li>Used SHAP to identify behavioral drivers (route popularity, purchase lead time, stay length) for targeted marketing decisions.</li>
+          </ul>
+          <div class="projlinks">
+            <a href="https://github.com/annohimanuel/YOUR_BOOKING_REPO">View on GitHub</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>Diabetes Risk Prediction</h3>
+          <p class="projmeta">Clinical classification • Supervised ML • Evaluation + interpretation</p>
+          <ul class="bullets">
+            <li>Trained and evaluated supervised classifiers to estimate diabetes risk from clinical features with appropriate preprocessing and metrics.</li>
+          </ul>
+          <div class="projlinks">
+            <a href="https://github.com/annohimanuel/YOUR_DIABETES_REPO">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Imanuel Annoh • Hosted on GitHub Pages
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
