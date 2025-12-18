@@ -1,409 +1,567 @@
+<!-- index.html (drop this at the root of your annohimanuel.github.io repo) -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Imanuel Annoh | Data Analyst / Data Scientist</title>
-  <meta name="description" content="Imanuel Annoh — Data Analyst / Data Scientist portfolio." />
+  <meta name="description" content="Imanuel Annoh — Data Analyst / Data Scientist portfolio" />
+  <title>Imanuel Annoh | Portfolio</title>
 
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --link:#2563eb;
-      --chip:#f3f4f6;
-      --shadow:0 10px 30px rgba(0,0,0,.06);
+      --bg0:#070A12;
+      --bg1:#0B1020;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
+      --text:#EAF0FF;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.55);
+      --line:rgba(255,255,255,.10);
+      --accent:#7C5CFF;
+      --accent2:#22D3EE;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 28px;
+      --max: 1120px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:var(--sans);
       color:var(--text);
-      background:var(--bg);
-      line-height:1.45;
-    }
-    a{color:var(--link); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .page{
-      max-width: 1080px;
-      margin: 28px auto;
-      padding: 0 18px 34px;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap: 28px;
-    }
-    @media (max-width: 920px){
-      .page{grid-template-columns: 1fr; gap:18px}
+      background:
+        radial-gradient(1200px 600px at 18% 12%, rgba(124,92,255,.25), transparent 55%),
+        radial-gradient(900px 520px at 86% 18%, rgba(34,211,238,.20), transparent 60%),
+        radial-gradient(900px 520px at 55% 88%, rgba(124,92,255,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
 
-    /* LEFT PANEL */
-    .left{
-      border:1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 18px;
-      height: fit-content;
-      background:#fff;
-    }
-    @media (max-width: 920px){ .left{position:relative; top:0} }
-
-    .name{
-      font-size: 28px;
-      font-weight: 800;
-      margin: 10px 0 2px;
-      letter-spacing: -.02em;
-    }
-    .tagline{
-      color:var(--muted);
-      font-weight: 600;
-      margin: 0 0 14px;
-    }
-    .avatar{
-      width: 140px;
-      height: 140px;
-      border-radius: 999px;
-      overflow:hidden;
-      border: 1px solid var(--border);
-      margin: 4px auto 12px;
-      background: #f9fafb;
-    }
-    .avatar img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    /* subtle grid */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity:.18;
+      pointer-events:none;
+      mask-image: radial-gradient(circle at 30% 10%, black 0%, transparent 55%);
     }
 
-    .quicklinks{
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-      flex-wrap:wrap;
-      margin: 10px 0 14px;
-      font-weight: 700;
-    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
 
-    .subtle{
-      text-align:center;
-      color:var(--muted);
-      font-size: 14px;
-      margin: 10px 0 12px;
+    /* top nav */
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      position:sticky; top:0; z-index:10;
+      padding:14px 0;
+      backdrop-filter: blur(10px);
     }
-
-    .btnrow{
-      display:grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 10px 10px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: #fff;
-      font-weight: 800;
-      font-size: 12px;
-      color: #111827;
-      cursor:pointer;
-      user-select:none;
-    }
-    .btn:hover{background:#f9fafb; text-decoration:none}
-
-    .chipbox{
-      margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      justify-content:center;
-    }
-    .chip{
-      background: var(--chip);
-      border: 1px solid var(--border);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      color:#111827;
-    }
-
-    /* RIGHT PANEL */
-    .right{
-      padding: 4px 0;
-    }
-    .hero{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap: 14px;
-      flex-wrap:wrap;
-      margin-bottom: 18px;
-    }
-    .title{
-      font-size: 40px;
-      font-weight: 900;
-      margin:0;
-      letter-spacing: -.03em;
-    }
-    .skillsline{
-      font-weight: 800;
-      color:#111827;
-      margin: 6px 0 0;
-    }
-    .skillsline span{color:var(--muted); font-weight:700}
-
-    .section{
-      margin-top: 18px;
-      padding-top: 10px;
-      border-top: 1px solid var(--border);
-    }
-    .section h2{
-      font-size: 22px;
-      margin: 14px 0 10px;
-      font-weight: 900;
-      letter-spacing: -.01em;
-    }
-
-    .item{
-      display:grid;
-      grid-template-columns: 18px 1fr;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid #f3f4f6;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      box-shadow: var(--shadow2);
     }
     .dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background:#cbd5e1;
-      margin-top: 8px;
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.14);
     }
-    .itemhead{
-      display:flex;
-      justify-content:space-between;
-      gap: 12px;
-      flex-wrap:wrap;
-      align-items:baseline;
+    .brand b{letter-spacing:.2px}
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .itemtitle{
-      font-weight: 900;
-      margin:0;
-      font-size: 16px;
-    }
-    .itemmeta{
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .itemsub{
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .bullets{
-      margin: 8px 0 0 18px;
-      color:#111827;
-    }
-    .bullets li{margin: 6px 0}
+    .pill:hover{transform: translateY(-1px); background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.18)}
+    .icon{width:16px; height:16px; opacity:.9}
 
-    .project{
-      padding: 12px 0;
-      border-bottom: 1px solid #f3f4f6;
+    /* hero */
+    .hero{
+      margin-top:10px;
+      border-radius: var(--radius2);
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
     }
-    .project h3{
-      margin:0;
-      font-size: 16px;
-      font-weight: 900;
+    .heroBG{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 360px at 20% 0%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(700px 360px at 90% 20%, rgba(34,211,238,.22), transparent 65%),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.40));
+      pointer-events:none;
     }
-    .projmeta{
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .projlinks{
-      margin-top: 8px;
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      font-weight: 800;
+    .heroContent{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      padding:28px;
     }
 
+    .title{font-size:44px; line-height:1.06; margin:0 0 8px; letter-spacing:-.6px}
+    .subtitle{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      color:var(--muted);
+      margin:0 0 14px;
+      font-size:15px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size:13px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .lead{
+      color:var(--muted);
+      margin:0 0 18px;
+      font-size:16px;
+      line-height:1.55;
+      max-width:62ch;
+    }
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow2);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      font-weight:600;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
+    .btnPrimary{
+      border-color: rgba(124,92,255,.45);
+      background: linear-gradient(135deg, rgba(124,92,255,.28), rgba(34,211,238,.18));
+    }
+
+    /* profile card */
+    .profile{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      padding:16px;
+      height:100%;
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .pfTop{display:flex; gap:12px; align-items:center}
+    .avatar{
+      width:64px; height:64px; border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      object-fit:cover;
+    }
+    .pfName{margin:0; font-size:16px; letter-spacing:.2px}
+    .pfMeta{margin:2px 0 0; color:var(--muted2); font-size:13px}
+    .stack{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:2px;
+    }
+    .chip{
+      font-family: var(--mono);
+      font-size:12px;
+      padding:7px 9px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+    .pfNote{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    /* sections */
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:16px}
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding:16px;
+    }
+    .h{
+      display:flex; align-items:center; gap:10px;
+      margin:0 0 12px;
+      font-size:14px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+    .h svg{opacity:.85}
+    .list{margin:0; padding-left:18px; color:var(--muted); line-height:1.6}
+    .list li{margin:6px 0}
+
+    /* projects */
+    .sectionTitle{
+      margin:26px 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .sectionSub{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:70ch;
+    }
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .proj{
+      grid-column: span 6;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 260px;
+    }
+    .projMedia{
+      height:140px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(500px 180px at 20% 40%, rgba(124,92,255,.25), transparent 60%),
+        radial-gradient(460px 180px at 80% 30%, rgba(34,211,238,.18), transparent 65%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .projMedia img{
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.92;
+    }
+    .projBody{padding:16px; display:flex; flex-direction:column; gap:10px}
+    .projTitle{margin:0; font-size:16px}
+    .projDesc{margin:0; color:var(--muted); line-height:1.55; font-size:14px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:2px}
+    .tag{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+    .projLinks{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .small{
+      padding:9px 10px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    /* footer */
     footer{
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 700;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color: var(--muted2);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+
+    /* responsive */
+    @media (max-width: 920px){
+      .heroContent{grid-template-columns: 1fr; padding:20px}
+      .title{font-size:38px}
+      .grid2{grid-template-columns:1fr}
+      .proj{grid-column: span 12}
+      .nav{position:relative}
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <!-- LEFT -->
-    <aside class="left">
-      <!-- Put your headshot in the repo root as: headshot.jpg (or change filename here) -->
-      <div class="avatar">
-        <img src="headshot.jpg" alt="Imanuel Annoh headshot">
+  <div class="wrap">
+
+    <!-- NAV -->
+    <div class="nav">
+      <div class="brand">
+        <div class="dot"></div>
+        <b>Imanuel Annoh</b>
       </div>
 
-      <div class="name">Imanuel Annoh</div>
-      <div class="tagline">Data Analyst / Data Scientist</div>
-
-      <div class="quicklinks">
-        <!-- Replace these links -->
-        <a href="resume.pdf">Resume</a>
-        <a href="https://www.linkedin.com/in/YOUR_LINKEDIN">LinkedIn</a>
-        <a href="https://github.com/annohimanuel">GitHub</a>
+      <div class="navlinks">
+        <!-- Replace # with your real links (keep or remove as you want) -->
+        <a class="pill" href="resume.pdf" title="Resume (PDF)">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7"/><path d="M14 3v4a1 1 0 0 0 1 1h4" stroke="currentColor" stroke-width="1.7"/></svg>
+          Resume
+        </a>
+        <a class="pill" href="https://github.com/annohimanuel" title="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.5 2.87 8.31 6.84 9.66.5.1.68-.22.68-.48 0-.24-.01-.88-.01-1.72-2.78.62-3.37-1.36-3.37-1.36-.46-1.19-1.12-1.5-1.12-1.5-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.9 1.56 2.36 1.11 2.94.85.09-.67.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.02-2.75-.1-.26-.44-1.3.1-2.71 0 0 .84-.27 2.75 1.05.8-.23 1.66-.34 2.51-.34.85 0 1.71.12 2.51.34 1.91-1.32 2.75-1.05 2.75-1.05.54 1.41.2 2.45.1 2.71.64.72 1.02 1.63 1.02 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.59.69.48A10.2 10.2 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" fill="currentColor" opacity=".9"/></svg>
+          GitHub
+        </a>
+        <a class="pill" href="https://www.linkedin.com" title="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M6.5 9.5V20H3V9.5h3.5ZM4.75 4A2.25 2.25 0 1 0 4.8 8.5 2.25 2.25 0 0 0 4.75 4ZM21 20h-3.5v-5.4c0-1.3-.03-2.98-1.82-2.98-1.82 0-2.1 1.42-2.1 2.88V20H10V9.5h3.36v1.44h.05c.47-.88 1.62-1.82 3.33-1.82 3.56 0 4.22 2.35 4.22 5.41V20Z" fill="currentColor" opacity=".9"/></svg>
+          LinkedIn
+        </a>
       </div>
+    </div>
 
-      <div class="subtle">Portfolio site for selected projects and experience.</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="heroBG"></div>
 
-      <div class="btnrow">
-        <!-- If you don’t want these, delete the whole btnrow -->
-        <a class="btn" href="resume.pdf">Download<br>RESUME</a>
-        <a class="btn" href="https://github.com/annohimanuel?tab=repositories">View<br>REPOS</a>
-        <a class="btn" href="mailto:annohimanuel123@gmail.com">Email<br>ME</a>
-      </div>
-
-      <div class="chipbox" aria-label="Key skills">
-        <span class="chip">Python</span>
-        <span class="chip">SQL</span>
-        <span class="chip">Power BI</span>
-        <span class="chip">Tableau</span>
-        <span class="chip">FastAPI</span>
-        <span class="chip">XGBoost</span>
-        <span class="chip">SHAP</span>
-      </div>
-    </aside>
-
-    <!-- RIGHT -->
-    <section class="right">
-      <div class="hero">
+      <div class="heroContent">
         <div>
-          <h1 class="title">Data Scientist</h1>
-          <p class="skillsline"><span>Technical Skills:</span> Python, SQL, Tableau, Power BI, FastAPI, XGBoost, SHAP, PostgreSQL, MySQL</p>
+          <h1 class="title">Data Analyst / Data Scientist</h1>
+
+          <div class="subtitle">
+            <span class="badge">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M7 16V8m4 8v-5m4 5V6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              Analytics • ML • Dashboards • APIs
+            </span>
+            <span class="badge">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              End-to-end projects, production mindset
+            </span>
+          </div>
+
+          <p class="lead">
+            I build decision-ready analytics and machine learning systems—from data cleaning and modeling to deployment.
+            My work spans business and healthcare use-cases, with a focus on clarity, reproducibility, and practical impact.
+          </p>
+
+          <div class="ctaRow">
+            <!-- Replace links as needed -->
+            <a class="btn btnPrimary" href="#projects">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              View featured projects
+            </a>
+            <a class="btn" href="mailto:your.email@example.com">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Contact
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div class="section" id="education">
-        <h2>Education</h2>
-
-        <div class="item">
-          <div class="dot"></div>
-          <div>
-            <div class="itemhead">
-              <p class="itemtitle">Master of Science, Data Science</p>
-              <div class="itemmeta">Eastern University (Mar 2025)</div>
+        <aside class="profile">
+          <div class="pfTop">
+            <!-- Put your photo here: create /assets/profile.jpg -->
+            <img class="avatar" src="assets/profile.jpg" alt="Imanuel Annoh portrait" onerror="this.style.display='none';document.getElementById('pfFallback').style.display='flex';" />
+            <div id="pfFallback" style="display:none; width:64px; height:64px; border-radius:18px; border:1px solid rgba(255,255,255,.14); background:linear-gradient(135deg, rgba(124,92,255,.35), rgba(34,211,238,.18)); align-items:center; justify-content:center; font-weight:800;">
+              IA
             </div>
-            <p class="itemsub">St. Davids, PA • GPA: 3.9/4.0</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="dot"></div>
-          <div>
-            <div class="itemhead">
-              <p class="itemtitle">Bachelor of Science, Biology</p>
-              <div class="itemmeta">Siena College (May 2022)</div>
+            <div>
+              <p class="pfName"><b>Imanuel Annoh</b></p>
+              <p class="pfMeta">Connecticut, USA • Open to analyst & ML roles</p>
             </div>
-            <p class="itemsub">Loudonville, NY</p>
           </div>
-        </div>
+
+          <p class="pfNote">
+            Core stack for the projects you see here. I prioritize clean pipelines, evaluation discipline, and deployment-ready structure.
+          </p>
+
+          <div class="stack">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Pandas</span>
+            <span class="chip">scikit-learn</span>
+            <span class="chip">XGBoost</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Tableau</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">MySQL</span>
+          </div>
+        </aside>
       </div>
-
-      <div class="section" id="experience">
-        <h2>Work Experience</h2>
-
-        <div class="item">
-          <div class="dot"></div>
-          <div>
-            <div class="itemhead">
-              <p class="itemtitle">Data Analyst @ Decabyte</p>
-              <div class="itemmeta">Sep 2023 – Oct 2025</div>
-            </div>
-            <p class="itemsub">Remote</p>
-            <ul class="bullets">
-              <li>Built sales and inventory analytics system using Python, SQL, and Excel; reduced stockouts by 25% and improved customer outcomes through demand insights.</li>
-              <li>Automated daily/weekly/monthly reporting pipelines; saved 10+ hours/week and improved reporting consistency and accuracy.</li>
-              <li>Developed Power BI dashboards and KPI tracking for sales performance, inventory health, and forecasting visibility.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="dot"></div>
-          <div>
-            <div class="itemhead">
-              <p class="itemtitle">Data Entry @ Decabyte</p>
-              <div class="itemmeta">Aug 2019 – May 2024</div>
-            </div>
-            <p class="itemsub">Remote</p>
-            <ul class="bullets">
-              <li>Maintained high-volume operational datasets across internal databases and spreadsheets; ensured accuracy and timely updates.</li>
-              <li>Performed routine validation and quality checks; corrected inconsistencies to improve reliability for downstream reporting.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="section" id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-          <h3>Hospital Readmission Risk Modeling & Deployment</h3>
-          <p class="projmeta">Healthcare analytics • Causal inference (Difference-in-Differences) • ML + deployment</p>
-          <ul class="bullets">
-            <li>Built end-to-end pipeline on 1M patient encounters to model 30-day readmission risk.</li>
-            <li>Developed leakage-safe pipelines (Logistic Regression, XGBoost) with threshold tuning and SHAP explainability.</li>
-            <li>Deployed FastAPI inference service returning calibrated probabilities and threshold-based predictions.</li>
-          </ul>
-          <div class="projlinks">
-            <a href="https://github.com/annohimanuel/YOUR_READMISSION_REPO">View on GitHub</a>
-            <a href="https://github.com/annohimanuel/YOUR_READMISSION_REPO#readme">Readme</a>
-          </div>
-        </div>
-
-        <div class="project">
-          <h3>Drivers of Booking Completions (Airbnb-style dataset)</h3>
-          <p class="projmeta">Conversion modeling • XGBoost • Class imbalance • SHAP</p>
-          <ul class="bullets">
-            <li>Built XGBoost model on 50K bookings; handled imbalance and high-cardinality features via frequency encoding.</li>
-            <li>Used SHAP to identify behavioral drivers (route popularity, purchase lead time, stay length) for targeted marketing decisions.</li>
-          </ul>
-          <div class="projlinks">
-            <a href="https://github.com/annohimanuel/YOUR_BOOKING_REPO">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project">
-          <h3>Diabetes Risk Prediction</h3>
-          <p class="projmeta">Clinical classification • Supervised ML • Evaluation + interpretation</p>
-          <ul class="bullets">
-            <li>Trained and evaluated supervised classifiers to estimate diabetes risk from clinical features with appropriate preprocessing and metrics.</li>
-          </ul>
-          <div class="projlinks">
-            <a href="https://github.com/annohimanuel/YOUR_DIABETES_REPO">View on GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <footer>
-        © <span id="year"></span> Imanuel Annoh • Hosted on GitHub Pages
-      </footer>
     </section>
-  </main>
+
+    <!-- QUICK INFO -->
+    <div class="grid2">
+      <section class="card">
+        <div class="h">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          What I deliver
+        </div>
+        <ul class="list">
+          <li>Clean, documented analysis with reproducible outputs</li>
+          <li>Predictive modeling with proper validation + thresholding</li>
+          <li>Dashboards (Tableau/Power BI) that answer business questions</li>
+          <li>Simple APIs (FastAPI) to serve models in real time</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="h">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 20s7-4 7-10a7 7 0 0 0-14 0c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.5a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" stroke="currentColor" stroke-width="1.7"/></svg>
+          Focus areas
+        </div>
+        <ul class="list">
+          <li>Business analytics: segmentation, KPIs, forecasting basics</li>
+          <li>Healthcare analytics: risk modeling, quality metrics, causal thinking</li>
+          <li>Model explainability: SHAP for global + local drivers</li>
+          <li>Data foundations: schema design, ETL, and sanity checks</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- PROJECTS -->
+    <h2 class="sectionTitle" id="projects">Featured Projects</h2>
+    <p class="sectionSub">
+      Add screenshots in <span style="font-family:var(--mono)">/assets</span> to make the cards look premium.
+      If you don’t add images, the gradient headers still look clean.
+    </p>
+
+    <div class="projects">
+      <!-- 1 -->
+      <article class="proj">
+        <div class="projMedia">
+          <img src="assets/project-readmission.jpg" alt="Hospital readmission project screenshot" onerror="this.style.display='none';" />
+        </div>
+        <div class="projBody">
+          <h3 class="projTitle">Hospital Readmission Risk Modeling & Deployment</h3>
+          <p class="projDesc">
+            Production-style pipeline: analysis → modeling → thresholding → API inference. Includes causal framing and explainability.
+          </p>
+          <div class="tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">Thresholding</span>
+          </div>
+          <div class="projLinks">
+            <a class="btn small" href="https://github.com/annohimanuel/hospital-readmission">Repository</a>
+            <a class="btn small" href="https://hospital-readmission-api-xxis.onrender.com/docs">Live API docs</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="proj">
+        <div class="projMedia">
+          <img src="assets/project-booking.jpg" alt="Booking completion project screenshot" onerror="this.style.display='none';" />
+        </div>
+        <div class="projBody">
+          <h3 class="projTitle">Drivers of Booking Completions</h3>
+          <p class="projDesc">
+            Classification modeling with class imbalance handling and interpretable drivers for product/ops decisions.
+          </p>
+          <div class="tags">
+            <span class="tag">XGBoost</span>
+            <span class="tag">Imbalance</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">EDA</span>
+          </div>
+          <div class="projLinks">
+            <a class="btn small" href="https://github.com/annohimanuel/booking-completion-prediction">Repository</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="proj">
+        <div class="projMedia">
+          <img src="assets/project-diabetes.jpg" alt="Diabetes prediction project screenshot" onerror="this.style.display='none';" />
+        </div>
+        <div class="projBody">
+          <h3 class="projTitle">Diabetes Risk Prediction (Pima Indians Dataset)</h3>
+          <p class="projDesc">
+            Logistic Regression vs Random Forest vs Gradient Boosting with imputation, scaling, tuning, and feature importance.
+          </p>
+          <div class="tags">
+            <span class="tag">GridSearchCV</span>
+            <span class="tag">Imputation</span>
+            <span class="tag">Metrics</span>
+            <span class="tag">Feature importance</span>
+          </div>
+          <div class="projLinks">
+            <a class="btn small" href="https://github.com/annohimanuel/Diabetes-Prediction">Repository</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="proj">
+        <div class="projMedia">
+          <img src="assets/project-crop.jpg" alt="Crop recommender project screenshot" onerror="this.style.display='none';" />
+        </div>
+        <div class="projBody">
+          <h3 class="projTitle">Crop Recommender System</h3>
+          <p class="projDesc">
+            Supervised learning project focused on agricultural decision support and clean model evaluation.
+          </p>
+          <div class="tags">
+            <span class="tag">Classification</span>
+            <span class="tag">Model comparison</span>
+            <span class="tag">Preprocessing</span>
+          </div>
+          <div class="projLinks">
+            <a class="btn small" href="https://github.com/annohimanuel/Crop-Recommender-System">Repository</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- EXTRA / REPOS -->
+    <h2 class="sectionTitle" style="margin-top:28px;">More Repositories</h2>
+    <div class="grid2">
+      <section class="card">
+        <div class="h">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          Quick links
+        </div>
+        <ul class="list">
+          <li><a href="https://github.com/annohimanuel/mushroom-edibility-classification">Mushroom edibility classification</a></li>
+          <li><a href="https://github.com/annohimanuel/Hospitalization-Hypothesis-Testing">Hospitalization hypothesis testing</a></li>
+          <li><a href="https://github.com/annohimanuel/AI-Ethics-Medical_liability-">AI ethics: medical liability</a></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="h">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.7"/></svg>
+          Site setup (do this once)
+        </div>
+        <ul class="list">
+          <li>Create <span style="font-family:var(--mono)">/assets</span> and add: <span style="font-family:var(--mono)">profile.jpg</span> + 2–4 project screenshots</li>
+          <li>Put your PDF resume as <span style="font-family:var(--mono)">resume.pdf</span> (or update the nav link)</li>
+          <li>Commit + push, GitHub Pages auto-updates the website</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> Imanuel Annoh</div>
+      <div style="font-family:var(--mono); opacity:.9;">Built with plain HTML + CSS</div>
+    </footer>
+
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
